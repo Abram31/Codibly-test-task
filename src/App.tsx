@@ -2,10 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const apppArr = 123;
-console.log(apppArr);
-
-
 function App() {
   return (
     <div className="App">

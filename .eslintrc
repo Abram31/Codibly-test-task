@@ -10,8 +10,7 @@
         "plugin:@typescript-eslint/recommended",
         "prettier"
     ],
-    "overrides": [
-    ],
+    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -24,6 +23,7 @@
         "prettier"
     ],
     "rules": {
+        "prettier/prettier": "error",
         "react/react-in-jsx-scope": "off",
         "camelcase": "error",
         "spaced-comment": "error",
@@ -34,6 +34,9 @@
         "no-duplicate-imports": "error"
     },
     "settings": {
+        "react": {
+            "version": "detect"
+        },
         "import/resolver": {
             "typescript": {}
         }
