@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { fetchRequest } from '../../../fetch/fetchRequest';
-import { propsGetFetch } from '../../../interfaces/propsGetFetch';
 import module from './FormRequest.module.scss';
 export const FormRequest = () => {
   const [numberPage, setNumber] = useState('');
