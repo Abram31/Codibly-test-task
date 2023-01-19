@@ -1,0 +1,12 @@
+.container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.row {
+    padding: .5rem 0;
+    text-align: center;
+    border-radius: 10rem;
+}
+
