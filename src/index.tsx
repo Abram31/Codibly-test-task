@@ -4,12 +4,15 @@ import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
+import { ProviderContextModal } from './context/context';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <Header />
-    <Main />
+    <ProviderContextModal>
+      <Header />
+      <Main />
+    </ProviderContextModal>
   </React.StrictMode>
 );
 

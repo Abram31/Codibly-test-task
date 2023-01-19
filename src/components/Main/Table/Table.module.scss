@@ -7,6 +7,12 @@
     text-align: center;
 }
 
+.wrapper_row {}
+
+.wrapper_row:hover {
+    cursor: pointer;
+}
+
 .column_id {}
 
 .column_name {}
@@ -22,7 +28,3 @@
 .year {
     border: solid 2px;
 }
-
-// .wrapper_row {
-//     background-color: aqua;
-// }

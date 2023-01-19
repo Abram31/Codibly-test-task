@@ -1,9 +1,19 @@
-import { useContext } from 'react';
+import { Fragment, SyntheticEvent, useContext, useState } from 'react';
 import { MyContext } from '../../../context/context';
+import { ModalWIndow } from '../ModalWIndow/ModalWIndow';
 import module from './Table.module.scss';
 
 export const Table = () => {
-  const context = useContext(MyContext);
+  const contextListGoods = useContext(MyContext);
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleClickRow = (e: SyntheticEvent<Element, Event>) => {
+    console.log(e);
+    console.log(openModal);
+    setOpenModal(!openModal);
+  };
+  const closePopap = () => setOpenModal(!openModal);
 
   return (
     <table className={module.table}>
@@ -15,17 +25,20 @@ export const Table = () => {
         </tr>
       </thead>
       <tbody>
-        {context?.data.map((good, index) => {
+        {contextListGoods?.data.map((good, index) => {
           return (
-            <tr
-              key={good.id + index}
-              className={module.wrapper_row}
-              style={{ backgroundColor: good.color }}
-            >
-              <td className={module.date}>{good.id}</td>
-              <td className={module.name}>{good.name}</td>
-              <td className={module.year}>{good.year}</td>
-            </tr>
+            <Fragment key={good.id + index}>
+              <tr
+                className={module.wrapper_row}
+                style={{ backgroundColor: good.color }}
+                onClick={handleClickRow}
+              >
+                <td className={module.date}>{good.id}</td>
+                <td className={module.name}>{good.name}</td>
+                <td className={module.year}>{good.year}</td>
+              </tr>
+              <ModalWIndow closePopap={closePopap} open={openModal} />
+            </Fragment>
           );
         })}
       </tbody>

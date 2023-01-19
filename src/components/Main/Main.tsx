@@ -6,6 +6,7 @@ import { fetchRequest } from '../../fetch/fetchRequest';
 import { Actions } from '../../interfaces/dataContext';
 import { reducerGoods } from '../../context/reducer';
 import { initialState } from '../../context/globalState';
+import { Card } from './Card/Card';
 
 export const Main = () => {
   const [goodsState, dispatch] = useReducer(reducerGoods, initialState);
@@ -22,6 +23,7 @@ export const Main = () => {
         <div className={module.wrapper_table}>
           <Table />
         </div>
+        <Card />
       </main>
     </MyContext.Provider>
   );
