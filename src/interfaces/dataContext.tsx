@@ -1,3 +1,5 @@
+import { Dispatch } from 'react';
+
 export interface Goods {
   id: number;
   name: string;
@@ -25,4 +27,9 @@ export enum Actions {
 export interface ActionKind {
   type: Actions;
   payload: IdataContext;
+}
+
+export interface MyContextProps {
+  dispatch: Dispatch<ActionKind>;
+  state: IdataContext;
 }

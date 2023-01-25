@@ -10,8 +10,8 @@ export const FormRequest = () => {
 
   const onSubmitForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = await fetchRequest({ page: numberPage });
-    console.log(data);
+    // const data = await fetchRequest({ page: numberPage });
+    // console.log(data);
   };
   return (
     <form className={module.form} action="" onSubmit={onSubmitForm}>

@@ -11,11 +11,11 @@ export const reducerGoods: Reducer<IdataContext, ActionKind> = (state, action) =
   }
 };
 
-export const reducerModalWindow: Reducer<ModalWIndowProps, ActionKindModal> = (state, action) => {
-  switch (action.type) {
-    case ActionsModal.trigger:
-      return { open: !action.payload };
-    default:
-      return state;
-  }
-};
+// export const reducerModalWindow: Reducer<ModalWIndowProps, ActionKindModal> = (state, action) => {
+//   switch (action.type) {
+//     case ActionsModal.trigger:
+//       return { open: !action.payload };
+//     default:
+//       return state;
+//   }
+// };

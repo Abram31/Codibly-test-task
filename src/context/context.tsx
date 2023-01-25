@@ -1,21 +1,16 @@
-import { createContext, ReactNode, useReducer } from 'react';
-import { IdataContext } from '../interfaces/dataContext';
+import { createContext, Dispatch, ReactNode, useReducer } from 'react';
+import { ActionKind, IdataContext, MyContextProps } from '../interfaces/dataContext';
 import { ActionsModal, ModalWIndowProps } from '../interfaces/modalWindow';
-import { reducerModalWindow } from './reducer';
+import { initialState } from './globalState';
+import { reducerGoods } from './reducer';
 
-export const MyContext = createContext<IdataContext | undefined>(undefined);
+export const MyContext = createContext<MyContextProps | undefined>(undefined);
 
-const initialStateModal = { open: false };
-
-export const ContextOpenModal = createContext<ModalWIndowProps>(initialStateModal);
-
-export const ProviderContextModal = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(reducerModalWindow, initialStateModal);
+export const ProviderContext = ({ children }: { children: ReactNode }) => {
+  const [state, dispatch] = useReducer(reducerGoods, initialState);
   const value = {
-    open: state.open,
-    changeState: () => {
-      dispatch({ type: ActionsModal.trigger, payload: state.open });
-    },
+    dispatch: dispatch,
+    state: state,
   };
-  return <ContextOpenModal.Provider value={value}>{children}</ContextOpenModal.Provider>;
+  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 };

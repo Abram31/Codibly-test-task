@@ -1,16 +1,27 @@
-import { Fragment, SyntheticEvent, useContext, useState } from 'react';
+import { Fragment, SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../../context/context';
+import { fetchRequest } from '../../../fetch/fetchRequest';
+import { Actions } from '../../../interfaces/dataContext';
 import { ModalWIndow } from '../ModalWIndow/ModalWIndow';
 import module from './Table.module.scss';
 
 export const Table = () => {
-  const contextListGoods = useContext(MyContext);
+  const { dispatch, state } = useContext(MyContext)!;
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetchRequest({ numberPage: '2' });
+      dispatch({ payload: data, type: Actions.UPLOAD });
+      // setState
+      console.log(data);
+    })();
+  }, [dispatch]);
 
   const [openModal, setOpenModal] = useState(false);
 
   const handleClickRow = (e: SyntheticEvent<Element, Event>) => {
-    console.log(e);
-    console.log(openModal);
+    console.log(`State:${Object.values(state)}`);
+
     setOpenModal(!openModal);
   };
   const closePopap = () => setOpenModal(!openModal);
@@ -26,7 +37,7 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {contextListGoods?.data.map((good, index) => {
+          {state.data.map((good, index) => {
             return (
               <Fragment key={good.id + index}>
                 <tr

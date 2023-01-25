@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
+import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Header } from './components/Header/Header';
-import { Main } from './components/Main/Main';
-import { ProviderContext } from './context/context';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProviderContext>
-      <Header />
-      <Main />
-    </ProviderContext>
+    <App />
   </React.StrictMode>
 );
 
