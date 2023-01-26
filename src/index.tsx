@@ -5,13 +5,16 @@ import reportWebVitals from './reportWebVitals';
 import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
 import { ProviderContext } from './context/context';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <ProviderContext>
-      <Header />
-      <Main />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ProviderContext>
   </React.StrictMode>
 );

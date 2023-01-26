@@ -7,16 +7,6 @@ import module from './Table.module.scss';
 
 export const Table = () => {
   const { dispatch, state } = useContext(MyContext)!;
-
-  useEffect(() => {
-    (async () => {
-      const data = await fetchRequest({ numberPage: '2' });
-      dispatch({ payload: data, type: Actions.UPLOAD });
-      // setState
-      console.log(data);
-    })();
-  }, [dispatch]);
-
   const [openModal, setOpenModal] = useState(false);
 
   const handleClickRow = (e: SyntheticEvent<Element, Event>) => {

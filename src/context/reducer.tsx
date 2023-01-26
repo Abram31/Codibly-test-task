@@ -5,17 +5,10 @@ import { ActionKindModal, ActionsModal, ModalWIndowProps } from '../interfaces/m
 export const reducerGoods: Reducer<IdataContext, ActionKind> = (state, action) => {
   switch (action.type) {
     case Actions.UPLOAD:
-      return { ...state, data: [...action.payload.data] };
+      return { ...state, ...action.payload };
+    case Actions.UPID:
+      return { ...state, ...action.payload };
     default:
       return state;
   }
 };
-
-// export const reducerModalWindow: Reducer<ModalWIndowProps, ActionKindModal> = (state, action) => {
-//   switch (action.type) {
-//     case ActionsModal.trigger:
-//       return { open: !action.payload };
-//     default:
-//       return state;
-//   }
-// };

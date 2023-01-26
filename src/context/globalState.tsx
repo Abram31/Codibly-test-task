@@ -2,9 +2,9 @@
 
 export const initialState = {
   page: 1,
-  per_page: 6,
+  per_page: 1,
   total: 12,
-  total_pages: 2,
+  total_pages: 1,
   data: [
     {
       id: 6,

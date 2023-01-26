@@ -22,6 +22,7 @@ export interface IdataContext {
 
 export enum Actions {
   UPLOAD = 'UPLOAD',
+  UPID = 'UPID',
 }
 
 export interface ActionKind {

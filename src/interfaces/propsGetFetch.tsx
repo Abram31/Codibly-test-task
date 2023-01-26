@@ -1,3 +1,4 @@
 export interface propsGetFetch {
-  numberPage: string;
+  numberPage?: string;
+  id?: string;
 }

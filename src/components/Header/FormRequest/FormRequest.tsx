@@ -1,17 +1,28 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useContext, useState } from 'react';
+import { MyContext } from '../../../context/context';
+import { initialState } from '../../../context/globalState';
 import { fetchRequest } from '../../../fetch/fetchRequest';
+import { Actions } from '../../../interfaces/dataContext';
 import module from './FormRequest.module.scss';
 export const FormRequest = () => {
-  const [numberPage, setNumber] = useState('');
+  const [id, setID] = useState('');
+  const { state, dispatch } = useContext(MyContext)!;
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const element = event.target;
-    setNumber(element.value);
+    setID(element.value);
   };
 
   const onSubmitForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const data = await fetchRequest({ page: numberPage });
-    // console.log(data);
+    const data = await fetchRequest({ id: id });
+    if (id) {
+      console.log(id);
+      const initial = { data: [data.data] };
+      const result = { ...initialState, ...initial };
+      dispatch({ type: Actions.UPID, payload: result });
+    } else {
+      dispatch({ type: Actions.UPLOAD, payload: data });
+    }
   };
   return (
     <form className={module.form} action="" onSubmit={onSubmitForm}>
@@ -23,7 +34,7 @@ export const FormRequest = () => {
           id="search"
           type="number"
           min="1"
-          value={numberPage}
+          value={id}
         ></input>
         <button className={module.form__button} type="submit">
           Search
