@@ -33,7 +33,11 @@ export const Routers = () => {
   }, []);
   return (
     <Routes>
-      <Route path={`/${state.page}`} element={<Main />}></Route>
+      {Array(state.total_pages + 1)
+        .fill(1)
+        .map((iten, index) => {
+          return <Route key={index} path={`/${index + 1}`} element={<Main />}></Route>;
+        })}
     </Routes>
   );
 };

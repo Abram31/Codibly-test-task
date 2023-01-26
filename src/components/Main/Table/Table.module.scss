@@ -6,7 +6,10 @@
 .wrapper_columns {
     text-align: center;
 }
-
+.title {
+    font-size: 2rem;
+    text-align: center;
+}
 .wrapper_row {}
 
 .wrapper_row:hover {
@@ -26,5 +29,5 @@
 .date,
 .name,
 .year {
-    border: solid 2px;
+    border: solid 2px #ffffff61;
 }

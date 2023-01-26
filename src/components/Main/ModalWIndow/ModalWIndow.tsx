@@ -5,11 +5,13 @@ import { ModalWIndowProps } from '../../../interfaces/modalWindow';
 import { ModalWindowBody } from './ModalWindowBody/ModalWindowBody';
 
 export const ModalWIndow = ({ open, closePopap }: ModalWIndowProps) => {
+  console.log(open);
+
   return (
     <div className="wrapper-modal">
       <Popup
         lockScroll={true}
-        open={open}
+        open={open.open}
         closeOnDocumentClick={true}
         onClose={() => {
           closePopap && closePopap();
@@ -22,7 +24,7 @@ export const ModalWIndow = ({ open, closePopap }: ModalWIndowProps) => {
               closePopap && closePopap();
               return open;
             }}
-            id={2}
+            id={Number(open.id)}
           />
         }
       </Popup>

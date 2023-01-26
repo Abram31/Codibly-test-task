@@ -25,32 +25,38 @@ export const ModalWindowBody = ({
   const [dataState, setDataState] = useState<ModalWindowProps>();
   const [colorState, setColorState] = useState<string[]>();
 
-  // useEffect(() => {
-  //   const response: Promise<ModalWindowProps> = fetchRequest({ page: String(id) });
-  //   response.then((data) => {
-  //     console.log(data);
-  //     setColorState(Object.keys(data.data).map(() => randomColor()));
-  //     setDataState(data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const response = await fetchRequest({ id: String(id) });
+      console.log(response);
+      setDataState(response);
+      setColorState(Object.keys(response.data).map(() => randomColor()));
+    })();
+  }, []);
 
   return (
     <div className={module.container}>
-      {/* <div className={module.row} style={{ backgroundColor: colorState && colorState[0] }}>
+      <h3 className={module.title}>Flower</h3>
+      <div className={module.row} style={{ backgroundColor: colorState && colorState[0] }}>
+        <span>ID:</span>
         {dataState?.data.id}
       </div>
       <div className={module.row} style={{ backgroundColor: colorState && colorState[1] }}>
+        <span>NAME:</span>
         {dataState?.data.name}
       </div>
       <div className={module.row} style={{ backgroundColor: colorState && colorState[2] }}>
+        <span>YEAR:</span>
         {dataState?.data.year}
       </div>
       <div className={module.row} style={{ backgroundColor: colorState && colorState[3] }}>
+        <span>COLOR:</span>
         {dataState?.data.color}
       </div>
       <div className={module.row} style={{ backgroundColor: colorState && colorState[4] }}>
+        <span>VALUE:</span>
         {dataState?.data.pantone_value}
-      </div> */}
+      </div>
     </div>
   );
 };
