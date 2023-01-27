@@ -1,0 +1,34 @@
+.table {
+    margin: 1rem auto;
+    width: 300px;
+}
+
+.wrapper_columns {
+    text-align: center;
+}
+.title {
+    font-size: 2rem;
+    text-align: center;
+    color: #c8b092;
+}
+.wrapper_row {}
+
+.wrapper_row:hover {
+    cursor: pointer;
+}
+
+.column_id {}
+
+.column_name {}
+
+.column_year {}
+
+.table,
+.column_id,
+.column_name,
+.column_year,
+.date,
+.name,
+.year {
+    border: solid 2px #ffffff61;
+}

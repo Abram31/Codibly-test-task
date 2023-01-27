@@ -1,0 +1,35 @@
+.form {
+    max-width: 360px;
+}
+
+.form_fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border: #ffffff61 2px solid;
+
+}
+
+.form__legend {
+    font-size: 2rem;
+    color: #c8b092;
+}
+
+.form__input {}
+
+.form__button {
+    background-color: #2EA8E6;
+    border: none;
+    transition: .4s;
+    border-radius: 1rem;
+    padding: 0.3rem 0;
+    font-family: cursive;
+}
+
+.form__button:hover {
+    cursor: pointer;
+}
+
+.form__button:active {
+    transform: scale(.9);
+}
