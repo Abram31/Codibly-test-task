@@ -1,21 +1,15 @@
-import { Fragment, SyntheticEvent, useContext, useEffect, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import { Fragment, SyntheticEvent, useContext, useState } from 'react';
 import { MyContext } from '../../../context/context';
-import { fetchRequest } from '../../../fetch/fetchRequest';
-import { Actions } from '../../../interfaces/dataContext';
 import { ModalWIndow } from '../ModalWIndow/ModalWIndow';
 import module from './Table.module.scss';
 
 export const Table = () => {
-  const { dispatch, state } = useContext(MyContext)!;
+  const { state } = useContext(MyContext)!;
   const [openModal, setOpenModal] = useState({ id: '', open: false });
 
   const handleClickRow = (e: SyntheticEvent<HTMLTableRowElement>) => {
     const element = e.currentTarget;
     const id = element.querySelector('.row-id')?.textContent || '';
-
-    console.log(`State:${Object.values(state)}`);
-
     setOpenModal({ id: id, open: true });
   };
   const closePopap = () => setOpenModal({ id: '', open: false });

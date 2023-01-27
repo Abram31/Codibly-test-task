@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
 import { URL } from '../constants/url';
-import { MyContext, ProviderContext } from '../context/context';
+import { MyContext } from '../context/context';
 import { fetchRequest } from '../fetch/fetchRequest';
 import { Actions } from '../interfaces/dataContext';
 
@@ -35,7 +34,7 @@ export const Routers = () => {
     <Routes>
       {Array(state.total_pages + 1)
         .fill(1)
-        .map((iten, index) => {
+        .map((item, index) => {
           return <Route key={index} path={`/${index + 1}`} element={<Main />}></Route>;
         })}
     </Routes>

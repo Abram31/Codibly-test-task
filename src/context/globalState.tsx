@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 export const initialState = {
   page: 1,
   per_page: 1,

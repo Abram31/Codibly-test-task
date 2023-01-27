@@ -12,14 +12,13 @@ export type Props = {
   maxLength: number;
 };
 
-export const Pagination = ({ currentPage, lastPage, maxLength }: Props) => {
+export const Pagination = ({ currentPage, lastPage }: Props) => {
   const { dispatch, state } = useContext(MyContext)!;
   const navigate = useNavigate();
 
   const handlePage = async (pageNum: number) => {
     const data = await fetchRequest({ numberPage: String(pageNum) });
     dispatch({ payload: data, type: Actions.UPLOAD });
-    console.log(data);
     navigate(`/${pageNum}`);
   };
   const pageNums = Array(state.total_pages)

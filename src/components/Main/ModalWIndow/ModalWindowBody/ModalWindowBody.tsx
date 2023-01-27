@@ -1,8 +1,5 @@
-/* eslint-disable camelcase */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchRequest } from '../../../../fetch/fetchRequest';
-import { Card } from '../../Card/Card';
 import module from './ModalWindowBody.module.scss';
 import { randomColor } from './randomColor';
 
@@ -15,20 +12,13 @@ interface ModalWindowProps {
     pantone_value?: string;
   };
 }
-export const ModalWindowBody = ({
-  id,
-  onClick,
-}: {
-  id: number;
-  onClick: (() => void) | undefined;
-}) => {
+export const ModalWindowBody = ({ id }: { id: number; onClick: (() => void) | undefined }) => {
   const [dataState, setDataState] = useState<ModalWindowProps>();
   const [colorState, setColorState] = useState<string[]>();
 
   useEffect(() => {
     (async () => {
       const response = await fetchRequest({ id: String(id) });
-      console.log(response);
       setDataState(response);
       setColorState(Object.keys(response.data).map(() => randomColor()));
     })();

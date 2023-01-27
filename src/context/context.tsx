@@ -1,6 +1,5 @@
-import { createContext, Dispatch, ReactNode, useReducer } from 'react';
-import { ActionKind, IdataContext, MyContextProps } from '../interfaces/dataContext';
-import { ActionsModal, ModalWIndowProps } from '../interfaces/modalWindow';
+import { createContext, ReactNode, useReducer } from 'react';
+import { MyContextProps } from '../interfaces/dataContext';
 import { initialState } from './globalState';
 import { reducerGoods } from './reducer';
 

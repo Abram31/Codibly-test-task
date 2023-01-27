@@ -1,6 +1,5 @@
 import { Reducer } from 'react';
 import { ActionKind, Actions, IdataContext } from '../interfaces/dataContext';
-import { ActionKindModal, ActionsModal, ModalWIndowProps } from '../interfaces/modalWindow';
 
 export const reducerGoods: Reducer<IdataContext, ActionKind> = (state, action) => {
   switch (action.type) {

@@ -2,7 +2,7 @@
     position: relative;
     display: inline-flex;
     border: 1px solid #dee2e6;
-    background-color: #ffffff;
+    background-color: #333;
     padding: 10px 15px;
     color: #2EA8E6;
     font-size: 16px;
@@ -39,7 +39,7 @@
 
 .page-link.active {
     z-index: 2;
-    color: #ffffff;
+    color: #333;
     border-color: #2EA8E6;
     background-color: #2EA8E6;
 }
